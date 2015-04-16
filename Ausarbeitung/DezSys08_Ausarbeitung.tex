@@ -1,0 +1,150 @@
+\documentclass[11pt]{article}
+
+\usepackage[ngerman]{babel} %deutsche Silbentrennung
+\usepackage[utf8x]{inputenc} %Umlaute
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{url} % for references, which require url's
+\usepackage[T1]{fontenc}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{mathtools}
+
+\title{Ausarbeitung\\DEZSYS 08 -
+SERVICE ORIENTED ARCHITECTURE AND RESTFUL WEBSERVICE}
+\author{Adeyemi Paul, Soyka Wolfram}
+\date{\today{}, Wien}
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\lstset{basicstyle=\ttfamily\small,
+        keywordstyle=,
+        commentstyle=\itshape,
+        numbers=left,                   % where to put the line-numbers
+        stepnumber=1,
+        breaklines=true,					% line wrapping on
+        numberstyle=\tiny,
+        showstringspaces=false,
+        abovecaptionskip=0pt,
+        belowcaptionskip=0pt,
+        xleftmargin=\parindent,
+        fontadjust}
+        
+\section{Aufgabenstellung}
+Das neu eröffnete Unternehmen iKnow Systems ist spezialisiert auf Knowledgemanagement und bietet seinen Kunden die Möglichkeiten Daten und Informationen jeglicher Art in eine Wissensbasis einzupflegen und anschließend in der zentralen Wissensbasis nach Informationen zu suchen (ähnlich wikipedia).\\
+\\
+Folgendes ist im Rahmen der Aufgabenstellung verlangt:\\
+\\
+Entwerfen Sie ein Datenmodell, um die Eintraege der Wissensbasis zu speichern und um ein optimitiertes Suchen von Eintraegen zu gewaehrleisten. [2Pkt]\\
+\\
+Entwickeln Sie mittels RESTful Webservices eine Schnittstelle, um die Wissensbasis zu verwalten. Es muessen folgende Operationen angeboten werden:\\
+- Hinzufuegen eines neuen Eintrags\\
+- Aendern eines bestehenden Eintrags\\
+- Loeschen eines bestehenden Eintrags\\
+\\
+Alle Operationen muessen ein Ergebnis der Operation zurueckliefern. [3Pkt]\\
+\\
+Entwickeln Sie in Java ein SOA Webservice, dass die Funktionalitaet Suchen anbietet und das SOAP Protokoll einbindet. Erzeugen Sie fuer dieses Webservice auch eine WSDL-Datei. [3Pkt]\\
+\\
+Entwerfen Sie eine Weboberflaeche, um die RESTful Webservices zu verwenden. [3Pkt]\\
+\\
+Implementieren Sie einen einfachen Client mit einem User Interface (auch Commandline UI moeglich), der das SOA Webservice aufruft. [2Pkt]\\
+\\
+Dokumentieren Sie im weiteren Verlauf den Datentransfer mit SOAP. [1Pkt]\\
+\\
+Protokoll ist erforderlich! [2Pkt]\\
+Info:\\
+Gruppengroesse: 2 Mitglieder\\
+Punkte: 16\\
+\\
+Zum Testen bereiten Sie eine Routine vor, um die Wissensbasis mit einer 1 Million Datensaetze zu fuellen. Die Datensaetze sollen mindestens eine Laenge beim Suchbegriff von 10 Zeichen und bei der Beschreibung von 100 Zeichen haben! Ist die Performance bei der Suche noch gegeben?\\
+\\
+Links:\\
+JEE Webservices: \\
+http://docs.oracle.com/javaee/6/tutorial/doc/gijti.html\\
+\\
+Apache Web Services Project:\\ 
+http://ws.apache.org/\\
+\\
+Apache Axis/Axis2:\\
+http://axis.apache.org\\
+http://axis.apache.org/axis2/java/core/\\
+\\
+IBM Article: Java Web services - JAXB and JAX-WS in Axis2:\\
+http://www.ibm.com/developerworks/java/library/j-jws8/index.html
+
+\newpage
+\section{Aufwandschätzung}
+
+\subsection{Geschätzter Aufwands}
+
+\begin{center}
+  \begin{tabular}{| l | l |}
+    \hline
+    	Task & Aufwand  \\ \hline \hline
+		Datenmodell entwerfen & 30min \\ \hline
+		DDL-Script & 30min \\ \hline
+    	Test Inserts  & 30min  \\ \hline 
+		RESTful Webservice & 2h 30min \\ \hline 
+    	RESTful Weboberfläche & 1h 30min \\ \hline 
+    	SOA Webservice & 3h\\ \hline
+		SOA Client & 1h 30min\\ \hline
+		Dokumentation & 2h\\ \hline \hline
+    	Gesamt & 12h \\ \hline
+  \end{tabular}
+\end{center}
+
+\subsection{Tatsächlicher Aufwand}
+\begin{center}
+  \begin{tabular}{| l | l |}
+        \hline
+    	Task & Aufwand  \\ \hline \hline
+		Datenmodell entwerfen & 30min \\ \hline
+		DDL-Script & 30min \\ \hline
+    	Test Inserts  & 1h  \\ \hline 
+		RESTful Webservice & 30min \\ \hline 
+    	RESTful Weboberfläche & 3h \\ \hline 
+    	SOA Webservice & 1h 30min\\ \hline
+		SOA Client & 1h\\ \hline
+		Dokumentation & 2h\\ \hline \hline
+    	Gesamt & 11h \\ \hline
+
+  \end{tabular}
+\end{center}
+
+\section{Arbeitsaufteilung}
+\begin{center}
+  \begin{tabular}{| l | l | l |}
+        \hline
+		Task & Adeyemi & Soyka  \\ \hline \hline
+    	Datenmodell entwerfen & x & \\ \hline
+		DDL-Script & x & \\ \hline
+    	Test Inserts  &  & x\\ \hline 
+		RESTful Webservice &  & x\\ \hline 
+    	RESTful Weboberfläche &  & x\\ \hline 
+    	SOA Webservice & x & \\ \hline
+		SOA Client & x & \\ \hline
+		Dokumentation & x & x\\ \hline
+
+  \end{tabular}
+\end{center}
+
+\section{Umsetzung}
+
+
+\section{Probleme}
+\textbf{Lorem Ipsum Generator}\\
+Der in Python zur verfügung stehende Lorem-Ipsum generator(package: LoremIpsum) hat nach der ersten Zeile Lorem Ipsum, den String komplett zufällig erweitert, was zu Fehlern im Insert Befehl geführt hat.\\
+Daher haben wir einen Lorem-Impsum Generator aus dem Internet verwendet, um den String als solchen in unserem Python File abzuspeichern und bei den Inserts diesen dann zu verwenden.\\
+\\
+\textbf{Säubern von Wikipedia Titeln}\\
+Da für die Aufgabenstellung eine Datenmenge von 1Mio. Datensätze vorhanden sein muss, haben wir uns dazu entschieden die Titel für unsere Einträge von Wikipedia zu verwenden.\\
+Im Internet steht Wikipedia als XML Sammlung zum Download bereit. Da die komplette Kollektion jedoch 50GB groß ist, haben wir uns dazu entschieden nur die Titelliste zu verwenden.\\
+Viele dieser Einträge hatten jedoch Sonderzeichen in dem Namen, die verschiedene Probleme beim einfügen in die MySql Datenbank erzeugt haben. Folglich mussten wir uns eine Funktion schreiben die das gesamte File gesäubert und dabei alle Sonderzeichen entfernt hat.
+
+	
+\end{document}
