@@ -7,7 +7,7 @@ function add() {
     if (name.val() != "" && text.val() != "") {
         $.ajax({
             url: '/add/' + name.val() + '/' + text.val(),
-            type: 'GET',
+            type: 'POST',
             success: function (data) {
                 notySuccess("Added " + name.val());
                 text.val("");
@@ -27,7 +27,7 @@ function del() {
     if (id.val() != "") {
         $.ajax({
             url: '/delete/' + id.val(),
-            type: 'GET',
+            type: 'DELETE',
             success: function (data) {
                 notySuccess("Deleted entry with ID: " + id.val());
                 id.val("");
@@ -48,7 +48,7 @@ function edit() {
     if (id.val() != "" && name.val() != "" && text.val() != "") {
         $.ajax({
             url: '/edit/' + id.val() + '/' + name.val() + '/' + text.val(),
-            type: 'GET',
+            type: 'PUT',
             success: function (data) {
                 notySuccess("Edited " + $("#edit_id").val());
                 id.val("");
@@ -77,8 +77,6 @@ function find() {
             {
                 appendRow(asd[i]['id'], asd[i]['name'], asd[i]['text']);
             }
-
-            //show data
         },
         error: function (jqXHR, textStatus, errorThrown) {
             notyError(textStatus + ": " + errorThrown);
@@ -86,12 +84,10 @@ function find() {
     });
 }
 
-function appendRow(id, name, text, tak) {
+function appendRow(id, name, text) {
     var body = document.getElementById("search_body");
-
     var row = body.insertRow();
     var cell1 = row.insertCell(0);
-
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);

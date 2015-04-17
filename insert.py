@@ -4,7 +4,7 @@ import pymysql
 
 def ins(amount):
     ### first recreate DB per SQL file
-    conn = pymysql.connect(host='10.0.0.29', port=3306, user='judith', passwd='judith', db='judith')
+    conn = pymysql.connect(host='10.0.0.17', port=3306, user='judith', passwd='judith', db='judith')
     cur = conn.cursor()
     lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla viverra ex consequat, aliquet ligula vitae, molestie metus. Curabitur ultrices interdum enim quis faucibus. Etiam porta nisi sem, sed volutpat lectus condimentum nec. Nunc rhoncus consequat fringilla. Nam sed ligula vel nisl hendrerit ullamcorper vel id mi. Donec at ex sem. Mauris fermentum aliquam nunc vestibulum sagittis. Ut cursus iaculis mi vel convallis. Nulla molestie convallis purus, convallis euismod quam ultrices vel. Vestibulum quis commodo nisl, sit amet volutpat metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
 
@@ -87,4 +87,4 @@ def doquery(query):
     conn.close()
     return a
 
-ins(1000000)
+ins(10000)
