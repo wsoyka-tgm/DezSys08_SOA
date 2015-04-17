@@ -18,11 +18,27 @@ function add(){
 
 function del(){
     $.ajax({
-        url: '/delete/' +$("#delete_name").val(),
+        url: '/delete/' +$("#delete_id").val(),
         type: 'GET',
         success: function (data) {
-            notySuccess("Deleted "+ $("#delete_name").val());
-            $("#delete_name").val("");
+            notySuccess("Deleted "+ $("#delete_id").val());
+            $("#delete_id").val("");
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            notyError(textStatus + ": "+ errorThrown);
+        }
+    });
+}
+
+function edit(){
+    $.ajax({
+        url: '/edit/' +$("#edit_id").val()+'/'+$("#edit_name").val()+'/'+$("#edit_text").val(),
+        type: 'GET',
+        success: function (data) {
+            notySuccess("Edited "+ $("#edit_id").val());
+            $("#edit_id").val("");
+            $("#edit_name").val("");
+            $("#edit_text").val("");
         },
         error: function (jqXHR, textStatus, errorThrown) {
             notyError(textStatus + ": "+ errorThrown);

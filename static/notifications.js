@@ -2,7 +2,7 @@
  * Created by Wolfram on 16/04/15.
  */
 //default duration in MS
-var defaultDuration = 5000
+var defaultDuration = 10000
 
 // Each of the methods shows a notification in different styles/colors
 /* yellow */
