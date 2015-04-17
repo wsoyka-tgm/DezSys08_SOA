@@ -3,8 +3,9 @@
 <head lang="en">
     <style>
         div {
-             font-family: "Orbitron", sans-serif;
+            font-family: "Orbitron", sans-serif;
         }
+
         .table {
             text-align: center;
         }
@@ -37,21 +38,21 @@
 {% endblock %}
 
 
-<div class="middle" style="top: 10%; margin-left:15%; margin-right:15%">
-    <table id='mytable' class="table table-striped " style="text-align:center;">
-        <thead id="table_headers" style="text-align: left;">
+<div class="middle" style="top: 15%; margin-left:15%; margin-right:15%">
+    <table class="table table-striped " style="text-align:center; vertical-align: middle">
+        <thead  style="text-align: left;">
         <tr>
             <th style="text-align: center; width: 20%; font-size:25px;">Wissensbasisverwaltung</th>
         </tr>
         </thead>
-        <tbody id="table_body">
+        <tbody>
         <tr>
             <td>Add entry</td>
             <td></td>
             <td><input id="add_name" style="color:black;" type="text" placeholder="Name"></td>
-            <td><input id="add_text" style="color:black;" type="text" placeholder="Text"></td>
+            <td><input id="add_text" style="color:black;" type="text" placeholder="Text" onkeyup = "if(event.keyCode === 13) add();"></td>
             <td>
-                <button id="delete" class="btn btn-link" type="submit" onclick="add()">
+                <button class="btn btn-link" type="submit" onclick="add();">
                     <span class="glyphicon glyphicon-plus"></span>
                 </button>
             </td>
@@ -60,9 +61,9 @@
             <td>Edit</td>
             <td><input id="edit_id" style="color:black;" type="text" placeholder="ID"></td>
             <td><input id="edit_name" style="color:black;" type="text" placeholder="New Name"></td>
-            <td><input id="edit_text" style="color:black;" type="text" placeholder="New Text"></td>
+            <td><input id="edit_text" style="color:black;" type="text" placeholder="New Text" onkeyup = "if(event.keyCode === 13) edit();"></td>
             <td>
-                <button id="delete" class="btn btn-link" type="submit" style="margin-left:10px;" onclick="edit()">
+                <button class="btn btn-link" type="submit" style="margin-left:10px;" onclick="edit();">
                     <span class="glyphicon glyphicon-wrench"></span>
                 </button>
             </td>
@@ -70,17 +71,37 @@
         </tr>
         <tr>
             <td>Delete</td>
-            <td><input id="delete_id" type="text" placeholder="ID"></td>
+            <td><input id="delete_id" type="text" placeholder="ID" onkeyup = "if(event.keyCode === 13) del();"></td>
             <td></td>
             <td></td>
             <td>
-                <button id="delete" class="btn btn-link" type="submit" style="margin-left:10px;" onclick="del()">
+                <button class="btn btn-link" type="submit" style="margin-left:10px;" onclick="del();">
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
             </td>
         </tr>
         </tbody>
     </table>
+
+    <br/>
+
+    <table id='search_table' class="table table-striped " style="text-align:center;">
+        <thead>
+        <tr>
+            <th valign="center" style="text-align: left; font-size:25px;">Suche</th>
+            <th  valign="center" style="text-align: right;" colspan="3" >
+                <input id="search_tak" style="outline:none; color:black; width:500px !important; border-radius:10px; border:1px solid #999; padding-left:5px;"
+                       onkeyup = "if(event.keyCode === 13) find();" "type="text" placeholder="viki tak">
+                <button class="btn btn-link" style="margin-left:10px;" onclick="find();">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </th>
+        </tr>
+        </thead>
+        <tbody id="search_body">
+        </tbody>
+    </table>
+
 </div>
 
 {% block footer %}

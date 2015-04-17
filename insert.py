@@ -1,5 +1,7 @@
 __author__ = 'Wolfram'
 import pymysql
+
+
 def ins(amount):
     ### first recreate DB per SQL file
     conn = pymysql.connect(host='10.0.0.29', port=3306, user='judith', passwd='judith', db='judith')
@@ -15,20 +17,20 @@ def ins(amount):
                 break
             a = line.rstrip()
             a = ''.join(e for e in a if e.isalnum())
-            insert+="('"+a+"', '"+lorem+"'),"
+            insert += "('" + a + "', '" + lorem + "'),"
             counter += 1
             current += 1
-            #print(insert[:-1])
-            if(current >= 10000):
+            # print(insert[:-1])
+            if (current >= 10000):
                 #add ID
-                cur.execute("INSERT INTO viki (name, text) VALUES "+insert[:-1]+";")
+                cur.execute("INSERT INTO viki (name, text) VALUES " + insert[:-1] + ";")
                 current = 0
                 insert = ""
                 conn.commit()
                 print("added 10000")
 
 
-    #a="1"
+    # a="1"
     cur.execute("INSERT INTO tak VALUES ('tak1', 10)")
 
     conn.commit()
@@ -42,6 +44,7 @@ def ins(amount):
 
     cur.close()
     conn.close()
+
 
 def out():
     conn = pymysql.connect(host='10.0.106.8', port=3306, user='judith', passwd='judith', db='judith')
@@ -58,22 +61,23 @@ def out():
     cur.close()
     conn.close()
 
+
 def clear():
     allowed = "abcdefghijklmnopqrstuvwxyz"
-    with open("newtitles2",'w') as new_file:
+    with open("newtitles2", 'w') as new_file:
         with open("enwiki_titles") as old_file:
             for line in old_file:
                 a = ''.join(e for e in line if e.lower() in allowed)
                 if len(a) > 0:
-                    new_file.write(a+"\n")
+                    new_file.write(a + "\n")
+
 
 def doquery(query):
-    conn = pymysql.connect(host='10.0.0.29', port=3306, user='judith', passwd='judith', db='judith')
+    conn = pymysql.connect(host='10.0.106.113', port=3306, user='judith', passwd='judith', db='judith')
     cur = conn.cursor()
-    cur.execute("INSERT INTO viki (name, text) VALUES ('2412', 'asd');")
+    cur.execute(query)
     print(cur.description)
     print("--------")
-    print(cur)
     a = []
     for row in cur:
         print(row)
@@ -83,12 +87,4 @@ def doquery(query):
     conn.close()
     return a
 
-
-def add(name, text):
-    query = "INSERT INTO viki (name, text) VALUES ('%s', '%s');" % (name, text)
-    print(query)
-    return doquery(query)
-
-#search("tak1")
-#ins(1000000)
-add('241', 'asd')
+ins(1000000)
