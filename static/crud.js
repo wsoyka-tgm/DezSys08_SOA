@@ -70,7 +70,7 @@ function find() {
         type: 'GET',
         success: function (data) {
             $("#search_tak").val("");
-            console.log(data);
+            //console.log(data);
             $("#search_body").html("");
             var asd = JSON.parse(data);
             for (var i = 0; i<asd.length; i++)
